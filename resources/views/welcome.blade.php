@@ -37,10 +37,34 @@ Aggiungiamo un seeder per la classe Train e usiamo FakerPHP per generare dei dat
 </head>
 
 <body>
+    <header class="bg-primary">
+        <h1 class="mb-0">Treni !</h1>
+    </header>
 
-    <main>
-
+    <main class="bg-dark py-4">
+        <div class="container">
+            <div class="row row-cols-md-5 g-4">
+                @foreach($trains as $train)
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3>Partenza da: {{$train->departure_station}}</h3>
+                            <h3>Destinazione: {{$train->arrival_station}}</h3>
+                            <p>Orario partenza: {{$train->departure_time}}</p>
+                            <p>Orario arrivo: {{$train->arrival_time}}</p>
+                            <p>In orario: {{$train->on_time === 1 ? "si" : "no"}}</p>
+                            <p>Cancellato: {{$train->cancelled === 1 ? "si" : "no"}}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </main>
+
+    <footer class="bg-primary py-2">
+        <h1 class="mb-0">Footer !</h1>
+    </footer>
 
 </body>
 
