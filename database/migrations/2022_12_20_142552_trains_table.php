@@ -16,7 +16,15 @@ return new class extends Migration
     {
         Schema::create("trains", function (Blueprint $table) {
             $table->id();
-            //etcc
+            $table->string("company", 50);
+            $table->string("departure_station", 100);
+            $table->string("arrival_station", 100);
+            $table->string("departure_time", 8);
+            $table->string("arrival_time", 8);
+            $table->string("train_id_code", 20);
+            $table->tinyInteger("wagons")->nullable();
+            $table->boolean("on_time")->default(true);
+            $table->boolean("cancelled")->default(false);
         });
     }
 
