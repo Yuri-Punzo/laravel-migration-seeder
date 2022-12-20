@@ -25,6 +25,7 @@ return new class extends Migration
             $table->tinyInteger("wagons")->nullable();
             $table->boolean("on_time")->default(true);
             $table->boolean("cancelled")->default(false);
+            $table->timestamps();
         });
     }
 
